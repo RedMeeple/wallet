@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+100.times do
+  a = (-500..500).to_a.sample
+  Mony.create(other_party: Faker::Name.name, amount: a, date_of_transaction: Faker::Date.between(60.days.ago, Date.today))
+end

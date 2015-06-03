@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<%= @negative %>
+
+<h1>Listing Transactions</h1>
+
+
+<p>Account Total
+  <%= @monies_total %>
+</p>
+<p> Total amount spent
+  <%= @monies_spent %>
+</p>
+<p> This month you made
+  <%= @transactions_this_month %>
+  purchases for a total of
+  <%= @spent_this_month %> spent.
+</p>
+<p> Last month you made
+  <%= @transactions_last_month %>
+  purchases for a total of
+  <%= @spent_last_month %> spent.
+</p>
+<p>Your biggest expense ever was
+  <%= @biggest_expense %> and your biggest expense last month was
+  <%= @biggest_expense_last_month %>.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Other party</th>
+      <th>Amount</th>
+      <th>Transaction Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monies.each do |mony| %>
+      <tr>
+        <td><%= mony.other_party %></td>
+        <td><%= mony.amount %></td>
+        <td><%= mony.date_of_transaction %></td>
+        <td><%= link_to 'Show', mony %></td>
+        <td><%= link_to 'Edit', edit_mony_path(mony) %></td>
+        <td><%= link_to 'Destroy', mony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>Total Transactions
+  <%= @transactions %>
+</p>
+<br>
+
+<%= link_to 'New Transaction', new_mony_path %>

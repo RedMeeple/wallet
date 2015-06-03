@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  other_party: MyString
+  amount: 100.00
+
+two:
+  other_party: MyString
+  amount: 50.00

@@ -1,0 +1,29 @@
+<%= form_for(@mony) do |f| %>
+  <% if @mony.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mony.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @mony.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :other_party %><br>
+    <%= f.text_field :other_party %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_transaction %><br>
+    <%= f.date_field :date_of_transaction %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

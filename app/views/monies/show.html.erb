@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Other party:</strong>
+  <%= @mony.other_party %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @mony.amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_mony_path(@mony) %> |
+<%= link_to 'Back', monies_path %>

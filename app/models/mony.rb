@@ -12,7 +12,8 @@ class Mony < ActiveRecord::Base
 
   def self.spent
     array = Mony.select{ |mon| mon.amount < 0 }
-    array.map! {|item| item.amount}
+    array = array.map! {|item| item.amount}
+    array << 0
     "$#{array.reduce(:+).abs}"
   end
 
@@ -20,12 +21,12 @@ class Mony < ActiveRecord::Base
     array = Mony.select{|money| money.amount < 0}
     array = array.select{|money| Date.today.mon == money.date_of_transaction.mon}
     array.map!{|item| item.amount}
+    array << 0
     "$#{array.reduce(:+).abs}"
   end
 
   def self.transactions_this_month
-    array = Mony.select{|money| money.amount < 0}
-    array = array.select{|money| Date.today.mon == money.date_of_transaction.mon}
+    array = Mony.select{|money| Date.today.mon == money.date_of_transaction.mon}
     array.length
   end
 
@@ -33,6 +34,7 @@ class Mony < ActiveRecord::Base
     array = Mony.select{|money| money.amount < 0}
     array = array.select{|money| (Date.today.mon - 1 == money.date_of_transaction.mon)}
     array.map!{|item| item.amount}
+    array << 0
     "$#{array.reduce(:+).abs}"
   end
 
@@ -47,8 +49,13 @@ class Mony < ActiveRecord::Base
 
   def self.biggest_expense_last_month
     array = Mony.select{|money| (Date.today.mon - 1 == money.date_of_transaction.mon)}
-    array.sort_by{ |money| money.amount }
-    "$#{array.last.amount.abs}"
+    array = array.select{|money| money.amount < 0}
+    if array.empty?
+      "You had no expenses last month"
+    else
+      array.sort_by{ |money| money.amount }
+      "$#{array.last.amount.abs}"
+    end
   end
 
   def biggest_recipient

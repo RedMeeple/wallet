@@ -3,7 +3,14 @@
 one:
   other_party: MyString
   amount: 100.00
+  date_of_transaction: 2015-05-04
 
 two:
   other_party: MyString
   amount: 50.00
+  date_of_transaction: 2015-06-01
+
+three:
+  other_party: MyString
+  amount: -50.00
+  date_of_transaction: 2015-06-02

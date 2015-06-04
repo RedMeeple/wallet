@@ -10,26 +10,28 @@
 <p id="total">Account Total
   <%= @monies_total %>
 </p>
-<div> Total amount spent
-  <%= @monies_spent %>
-</div>
-<div> This month you made
-  <%= @transactions_this_month %>
-  transactions and spent
-  <%= @spent_this_month %>.
-</div>
-<div> Last month you made
-  <%= @transactions_last_month %>
-  transactions and spent
-  <%= @spent_last_month %>.
-</div>
-<div>Your biggest expense ever was
-  <%= @biggest_expense %> and your biggest expense last month was
-  <%= @biggest_expense_last_month %>.
-</div>
-<div>You spend most of your money with
-  <%= @biggest_recipient %>.
-</div>
+<ul>
+  <li> Total amount spent
+    <%= @monies_spent %>
+  </li>
+  <li> This month you made
+    <%= @transactions_this_month %>
+    transactions and spent
+    <%= @spent_this_month %>.
+  </li>
+  <li> Last month you made
+    <%= @transactions_last_month %>
+    transactions and spent
+    <%= @spent_last_month %>.
+  </li>
+  <li>Your biggest expense ever was
+    <%= @biggest_expense %> and your biggest expense last month was
+    <%= @biggest_expense_last_month %>.
+  </li>
+  <li>You spend most of your money with
+    <%= @biggest_recipient %>.
+  </li>
+</ul>
 <br>
 
 <table>
@@ -59,9 +61,8 @@
   </tbody>
 </table>
 
-<p id="links">
-  <span><%= link_to 'View All Transactions', monies_path %></span>
+<div class="wrapper">
+  <button class="btn"><%= link_to 'View All Transactions', monies_path %></button>
 
-  <span><%= link_to 'New Transaction', new_mony_path %></span>
-
-</p>
+  <button class="btn"><%= link_to 'New Transaction', new_mony_path %></button>
+</div>

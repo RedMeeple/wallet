@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :other_party %><br>
-    <%= f.text_field :other_party %>
+    <%= f.text_field :other_party, class: "entry_field" %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, class: "entry_field"  %>
   </div>
   <div class="field">
     <%= f.label :date_of_transaction %><br>
-    <%= f.date_field :date_of_transaction %>
+    <%= f.date_field :date_of_transaction, class: "entry_field"  %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div id="submit">
+    <button class="btn"><%= f.submit "Create Transaction" %></button>
   </div>
 <% end %>

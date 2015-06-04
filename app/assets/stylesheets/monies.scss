@@ -2,9 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+.entry_field{
+  border-radius: 10px;
+  padding: 5px
+}
+
 #warning{
   color: maroon;
   font-size: 18px;
+}
+
+.wrapper{
+  text-align: center;
+}
+
+.field{
+  border-radius: 20px;
 }
 
 #top{
@@ -13,9 +28,9 @@
 }
 
 #total{
-  font-size: 16px;
+  font-size: 18px;
   border: 2px solid black;
-  width: 200px;
+  width: 220px;
   padding: 5px;
 }
 

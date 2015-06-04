@@ -3,7 +3,10 @@
 
 <h1 id="links">Your Transactions</h1>
 
-<button class="btn"> <%= link_to 'New Transaction', new_mony_path %> </button>
+<div class="wrapper">
+  <button class="btn"><%= link_to 'New Transaction', new_mony_path %></button>
+  <button class="btn"><%= link_to 'Home', root_path %></button>
+</div>
 
 <table>
   <thead>

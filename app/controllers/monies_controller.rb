@@ -85,6 +85,6 @@ class MoniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mony_params
-      params.require(:mony).permit(:other_party, :amount, :date_of_transaction)
+      params.require(:mony).permit(:other_party, :amount, :date_of_transaction, :account_id)
     end
 end

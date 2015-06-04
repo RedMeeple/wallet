@@ -1,5 +1,7 @@
 class Mony < ActiveRecord::Base
 
+  belongs_to :account
+
   def self.negative_balance
     if Mony.sum(:amount) < 0
       "You have a negative account balance.  Have you considered eating ramen for a while?"

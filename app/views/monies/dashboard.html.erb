@@ -37,7 +37,7 @@
 <table>
   <thead>
     <tr>
-      <th id="top" colspan="5">Your Ten Most Recent Transactions</th>
+      <th id="top" colspan="5">Your Ten Most Recent Savings Transactions</th>
     </tr>
     <tr>
       <th>Other party</th>
@@ -48,14 +48,43 @@
   </thead>
 
   <tbody>
+    <% @savings = @monies.select {|mony| mony.account.name == "Checking"} %>
     <% 10.times do |i| %>
       <tr>
-        <td><%= @monies[i].other_party %></td>
-        <td><%= @monies[i].amount %></td>
-        <td><%= @monies[i].date_of_transaction %></td>
-        <td><%= link_to 'Show', @monies[i] %></td>
-        <td><%= link_to 'Edit', edit_mony_path(@monies[i]) %></td>
-        <td><%= link_to 'Destroy', @monies[i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @savings[i].other_party %></td>
+        <td><%= @savings[i].amount %></td>
+        <td><%= @savings[i].date_of_transaction %></td>
+        <td><%= link_to 'Show', @savings[i] %></td>
+        <td><%= link_to 'Edit', edit_mony_path(@savings[i]) %></td>
+        <td><%= link_to 'Destroy', @savings[i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th id="top" colspan="5">Your Ten Most Recent Checking Transactions</th>
+    </tr>
+    <tr>
+      <th>Other party</th>
+      <th>Amount</th>
+      <th>Transaction Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checking = @monies.select {|mony| mony.account.name == "Checking"} %>
+    <% 10.times do |i| %>
+      <tr>
+        <td><%= @checking[i].other_party %></td>
+        <td><%= @checking[i].amount %></td>
+        <td><%= @checking[i].date_of_transaction %></td>
+        <td><%= link_to 'Show', @checking[i] %></td>
+        <td><%= link_to 'Edit', edit_mony_path(@checking[i]) %></td>
+        <td><%= link_to 'Destroy', @checking[i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

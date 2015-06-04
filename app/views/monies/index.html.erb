@@ -11,6 +11,9 @@
 <table>
   <thead>
     <tr>
+      <th colspan="5">Savings<th>
+    </tr>
+    <tr>
       <th>Other party</th>
       <th>Amount</th>
       <th>Transaction Date</th>
@@ -19,7 +22,36 @@
   </thead>
 
   <tbody>
-    <% @monies.each do |mony| %>
+    <% @savings = @monies.select {|mony| mony.account.name == "Savings"} %>
+    <% @savings.each do |mony| %>
+      <tr>
+        <td><%= mony.other_party %></td>
+        <td><%= mony.amount %></td>
+        <td><%= mony.date_of_transaction %></td>
+        <td><%= link_to 'Show', mony %></td>
+        <td><%= link_to 'Edit', edit_mony_path(mony) %></td>
+        <td><%= link_to 'Destroy', mony, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5">Checking<th>
+    </tr>
+    <tr>
+      <th>Other party</th>
+      <th>Amount</th>
+      <th>Transaction Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checking = @monies.select {|mony| mony.account.name == "Checking"} %>
+    <% @checking.each do |mony| %>
       <tr>
         <td><%= mony.other_party %></td>
         <td><%= mony.amount %></td>

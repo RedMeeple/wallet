@@ -6,6 +6,7 @@ group :production do
   gem 'pg'
 
 end
+gem 'faker'
 gem 'puma'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -42,7 +43,7 @@ end
 
 group :development, :test do
 
-  gem 'faker'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

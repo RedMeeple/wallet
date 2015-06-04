@@ -24,8 +24,8 @@
     <%= f.date_field :date_of_transaction, class: "entry_field"  %>
   </div>
   <div class="field">
-    <%= f.label :account %><br>
-    <%= f.select :account, [["Checking", "checking"], ["Savings", "savings"]], class: "entry_field"  %>
+    <%= f.label :account_id %><br>
+    <%= f.select :account, [["Checking", "1"], ["Savings", "2"]], class: "entry_field"  %>
   </div>
   <div id="submit">
     <button class="btn"><%= f.submit "Create Transaction" %></button>

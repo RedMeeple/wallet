@@ -15,7 +15,7 @@ class MonyTest < ActiveSupport::TestCase
 
   test "negative balance" do
     Mony.create!(amount: -800.0, other_party: "Paycheck", date_of_transaction: 2015-05-30)
-    assert_equal "You have a negative account balance.  Have you considered eating rice and beans for a while?",
+    assert_equal "You have a negative account balance.  Have you considered eating ramen for a while?",
       Mony.negative_balance
   end
 

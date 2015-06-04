@@ -2,7 +2,7 @@ class Mony < ActiveRecord::Base
 
   def self.negative_balance
     if Mony.sum(:amount) < 0
-      "You have a negative account balance.  Have you considered eating rice and beans for a while?"
+      "You have a negative account balance.  Have you considered eating ramen for a while?"
     end
   end
 

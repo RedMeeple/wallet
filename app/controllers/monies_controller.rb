@@ -3,7 +3,12 @@ class MoniesController < ApplicationController
 
   # GET /monies
   # GET /monies.json
+
   def index
+    @monies = Mony.order(:date_of_transaction).all.reverse
+  end
+
+  def dashboard
     @monies = Mony.order(:date_of_transaction).all.reverse
     @monies_total = Mony.total
     @monies_spent = Mony.spent

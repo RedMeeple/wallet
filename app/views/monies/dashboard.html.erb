@@ -1,0 +1,67 @@
+
+<p id="notice"><%= notice %></p>
+
+<div id="warning">
+  <%= @negative %>
+</div>
+
+<h1>Your Financial Dashboard</h1>
+
+<p id="total">Account Total
+  <%= @monies_total %>
+</p>
+<div> Total amount spent
+  <%= @monies_spent %>
+</div>
+<div> This month you made
+  <%= @transactions_this_month %>
+  transactions and spent
+  <%= @spent_this_month %>.
+</div>
+<div> Last month you made
+  <%= @transactions_last_month %>
+  transactions and spent
+  <%= @spent_last_month %>.
+</div>
+<div>Your biggest expense ever was
+  <%= @biggest_expense %> and your biggest expense last month was
+  <%= @biggest_expense_last_month %>.
+</div>
+<div>You spend most of your money with
+  <%= @biggest_recipient %>.
+</div>
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th id="top" colspan="5">Your Ten Most Recent Transactions</th>
+    </tr>
+    <tr>
+      <th>Other party</th>
+      <th>Amount</th>
+      <th>Transaction Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% 10.times do |i| %>
+      <tr>
+        <td><%= @monies[i].other_party %></td>
+        <td><%= @monies[i].amount %></td>
+        <td><%= @monies[i].date_of_transaction %></td>
+        <td><%= link_to 'Show', @monies[i] %></td>
+        <td><%= link_to 'Edit', edit_mony_path(@monies[i]) %></td>
+        <td><%= link_to 'Destroy', @monies[i], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p id="links">
+  <span><%= link_to 'View All Transactions', monies_path %></span>
+
+  <span><%= link_to 'New Transaction', new_mony_path %></span>
+
+</p>

@@ -1,33 +1,9 @@
+
 <p id="notice"><%= notice %></p>
 
-<%= @negative %>
+<h1 id="links">Your Transactions</h1>
 
-<h1>Listing Transactions</h1>
-
-
-<p>Account Total
-  <%= @monies_total %>
-</p>
-<p> Total amount spent
-  <%= @monies_spent %>
-</p>
-<p> This month you made
-  <%= @transactions_this_month %>
-  transactions and spent
-  <%= @spent_this_month %>.
-</p>
-<p> Last month you made
-  <%= @transactions_last_month %>
-  transactions and spent
-  <%= @spent_last_month %>.
-</p>
-<p>Your biggest expense ever was
-  <%= @biggest_expense %> and your biggest expense last month was
-  <%= @biggest_expense_last_month %>.
-</p>
-<p>You spend most of your money with
-  <%= @biggest_recipient %>.
-</p>
+<button class="btn"> <%= link_to 'New Transaction', new_mony_path %> </button>
 
 <table>
   <thead>
@@ -52,10 +28,3 @@
     <% end %>
   </tbody>
 </table>
-
-<p>Total Transactions
-  <%= @transactions %>
-</p>
-<br>
-
-<%= link_to 'New Transaction', new_mony_path %>

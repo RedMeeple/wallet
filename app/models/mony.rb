@@ -58,7 +58,9 @@ class Mony < ActiveRecord::Base
     end
   end
 
-  def biggest_recipient
-    biggest = Mony.order_by(:other_party)
+  def self.biggest_recipient
+    sum = Mony.group('other_party')
+    sum.sort_by{|party| party.amount }
+    sum.last.other_party
   end
 end

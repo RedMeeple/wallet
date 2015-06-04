@@ -48,6 +48,7 @@ class MonyTest < ActiveSupport::TestCase
   end
 
   test "biggest_recipient" do
-
+    Mony.create!(amount: -800.0, other_party: "Paycheck", date_of_transaction: 2015-05-30)
+    assert_equal "Paycheck", Mony.biggest_recipient
   end
 end

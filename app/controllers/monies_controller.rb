@@ -15,6 +15,7 @@ class MoniesController < ApplicationController
     @biggest_expense = Mony.biggest_expense
     @biggest_expense_last_month = Mony.biggest_expense_last_month
     @negative = Mony.negative_balance
+    @biggest_recipient = Mony.biggest_recipient
   end
 
   # GET /monies/1
